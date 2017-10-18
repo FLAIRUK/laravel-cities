@@ -41,6 +41,7 @@ You can start by publishing the configuration. This is an optional step, it cont
 Next generate the migration file:
 
     $ php artisan cities:migration
+    $ composer dump-autoload
 
 It will generate the `<timestamp>_setup_cities_table.php` migration and the `CitiesSeeder.php` seeder. To make sure the data is seeded insert the following code in the `seeds/DatabaseSeeder.php`
 
