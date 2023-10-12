@@ -111,7 +111,7 @@ class MigrationCommand extends Command {
             }
         }
         //Create the seeder
-        $seeder_file = $this->laravel->basePath()."/database/seeders/citiesSeeder.php";
+        $seeder_file = $this->laravel->basePath()."/database/seeders/CitiesSeeder.php";
         $output = "<?php\n\n" .$app['view']->make('cities::generators.seeder')->render();
         if (!file_exists( $seeder_file )) {
             $fs = fopen($seeder_file, 'x');
