@@ -92,8 +92,8 @@ class MigrationCommand extends Command {
         //Create the migration
         $app = app();
         $migrationFiles = [
-            $this->laravel->path."/../database/migrations/*_setup_cities_table.php" => 'cities::generators.migration',
-            $this->laravel->path."/../database/migrations/*_charify_cities_table.php" => 'cities::generators.char_migration',
+            $this->laravel->basePath()."/database/migrations/*_setup_cities_table.php" => 'cities::generators.migration',
+            $this->laravel->basePath()."/database/migrations/*_charify_cities_table.php" => 'cities::generators.char_migration',
         ];
         $seconds = 0;
         foreach ($migrationFiles as $migrationFile => $outputFile) {            
@@ -111,7 +111,7 @@ class MigrationCommand extends Command {
             }
         }
         //Create the seeder
-        $seeder_file = $this->laravel->path."/../database/seeds/citiesSeeder.php";
+        $seeder_file = $this->laravel->basePath()."/database/seeders/CitiesSeeder.php";
         $output = "<?php\n\n" .$app['view']->make('cities::generators.seeder')->render();
         if (!file_exists( $seeder_file )) {
             $fs = fopen($seeder_file, 'x');

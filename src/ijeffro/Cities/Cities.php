@@ -40,7 +40,7 @@ class Cities extends Model {
     protected function getCities()
     {
         //Get the cities from the JSON file
-        if (sizeof($this->cities) == 0){
+  	if ((empty($this->cities))){
             $this->cities = json_decode(file_get_contents(__DIR__ . '/Models/cities.json'), true);
         }
 
