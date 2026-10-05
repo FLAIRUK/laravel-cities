@@ -16,7 +16,7 @@
   <br>&nbsp;
 </h2>
 
-**Laravel Cities** — More than 9,000 IATA city codes (`LON`, `NYC`, `PAR`, …) for Laravel 12 and 13. A city code groups every airport that serves a city. For example, `LON` covers Heathrow, Gatwick, Stansted and others.
+**Laravel Cities** — More than 9,000 IATA city codes (`LON`, `NYC`, `PAR`, …) for Laravel 12 and 13. In IATA's scheme a city code groups the airports that serve a city, as `LON` does for Heathrow, Gatwick and Stansted. This package lists the city codes; it does not map them to airports.
 
 - **No database required.** Look cities up through a facade backed by an in-memory dataset.
 - **Typed results.** Every lookup returns readonly `City` objects in Laravel collections keyed by code.
@@ -37,6 +37,8 @@
 ```bash
 composer require flairuk/laravel-cities
 ```
+
+Requires PHP 8.2 or later with Laravel 12, or PHP 8.3 or later with Laravel 13.
 
 Laravel discovers the service provider and the `Cities` facade automatically.
 
@@ -78,7 +80,8 @@ $request->validate(['city' => ['required', new CityCode]]);
 ## 💾 Database table (optional)
 
 ```bash
-php artisan cities:install         # publish config + migration, then migrate and seed
+php artisan cities:install             # publish config + migration, then ask to migrate and seed
+php artisan cities:install --migrate   # migrate and seed without asking
 php artisan cities:seed            # insert / update (safe to re-run)
 php artisan cities:seed --prune    # also delete rows no longer in the dataset
 ```
@@ -111,7 +114,7 @@ Version 1.0 is a rewrite. Breaking changes:
 | Package `ijeffro/laravel-cities` | `flairuk/laravel-cities` |
 | `ijeffro\Cities\…` namespace | `FLAIRUK\Cities\…` |
 | Facade `ijeffro\Cities\CitiesFacade` | `FLAIRUK\Cities\Facades\Cities` (auto-discovered) |
-| `Cities::getList($sort)` (array) | `Cities::all()->sortBy($sort)` (Collection of `City`) |
+| `Cities::getList($sort)` (array) | `Cities::all()->sortBy($property, SORT_NATURAL \| SORT_FLAG_CASE)` (Collection of `City`; properties are camelCase, e.g. `countryCode`) |
 | `Cities::getOne($id)` | `Cities::findById($id)` or `Cities::find($code)` |
 | `Cities::getListForSelect()` (keyed by id) | `Cities::options('id')` |
 | `php artisan cities:migration` | `php artisan cities:install` / `cities:seed` |
