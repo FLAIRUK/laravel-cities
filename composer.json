@@ -1,5 +1,5 @@
 {
-    "name": "ijeffro/laravel-cities",
+    "name": "flairuk/laravel-cities",
     "description": "IATA city codes for Laravel: an in-memory lookup API, validation rule and optional database table.",
     "type": "library",
     "license": "MIT",
