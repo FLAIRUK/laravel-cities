@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="160" viewBox="0 0 520 160" role="img" aria-label="Laravel Cities">
+  <title>Laravel Cities</title>
+  <defs>
+    <linearGradient id="cities-tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2DD4BF"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(16 16)" color="#0F766E">
+    <rect width="128" height="128" rx="32" fill="url(#cities-tile)"/>
+    <path d="M22 106V64H42V106ZM46 106V34H70V106ZM74 106V54H88V106ZM92 106V72H106V106Z" fill="#fff"/>
+    <g fill="currentColor"><rect x="52" y="42" width="4" height="6" rx="1"/><rect x="60" y="42" width="4" height="6" rx="1"/><rect x="52" y="54" width="4" height="6" rx="1"/><rect x="60" y="54" width="4" height="6" rx="1"/><rect x="52" y="66" width="4" height="6" rx="1"/><rect x="60" y="66" width="4" height="6" rx="1"/><rect x="28" y="72" width="8" height="5" rx="1"/><rect x="28" y="84" width="8" height="5" rx="1"/><rect x="78" y="62" width="6" height="5" rx="1"/><rect x="78" y="74" width="6" height="5" rx="1"/></g>
+    <rect x="16" y="104" width="96" height="6" rx="3" fill="#fff"/>
+  </g>
+  <text x="172" y="66" fill="#656D76" font-family="Inter, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="17" font-weight="600" letter-spacing="4">LARAVEL</text>
+  <text x="169" y="118" fill="#1F2328" font-family="Inter, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="56" font-weight="800" letter-spacing="-1.5">Cities</text>
+</svg>
