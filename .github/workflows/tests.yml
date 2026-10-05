@@ -34,5 +34,9 @@ jobs:
           composer require "illuminate/support:${{ matrix.laravel }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
+      - name: Lint
+        if: matrix.stability == 'prefer-stable'
+        run: vendor/bin/pint --test
+
       - name: Run tests
         run: vendor/bin/phpunit
