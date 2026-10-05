@@ -5,18 +5,33 @@
   </picture>
 </p>
 
-[![Tests](https://github.com/FLAIRUK/laravel-cities/actions/workflows/tests.yml/badge.svg)](https://github.com/FLAIRUK/laravel-cities/actions/workflows/tests.yml)
-[![Latest Stable Version](https://poser.pugx.org/ijeffro/laravel-cities/v/stable)](https://packagist.org/packages/ijeffro/laravel-cities)
-[![License](https://poser.pugx.org/ijeffro/laravel-cities/license)](https://packagist.org/packages/ijeffro/laravel-cities)
+<h2 align="center">
+  <a href="https://www.php.net/" target="_blank"><img src="https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=flat&logo=php&logoColor=white" alt="PHP 8.2+"></a>&nbsp;
+  <a href="https://laravel.com/docs/" target="_blank"><img src="https://img.shields.io/badge/Laravel-12%20%7C%2013-FF2D20?style=flat&logo=laravel&logoColor=white" alt="Laravel 12 or 13"></a>&nbsp;
+  <a href="https://github.com/FLAIRUK/laravel-cities/actions/workflows/tests.yml" target="_blank"><img src="https://img.shields.io/github/actions/workflow/status/FLAIRUK/laravel-cities/tests.yml?branch=master&style=flat&logo=githubactions&logoColor=white&label=Tests" alt="Tests"></a>&nbsp;
+  <a href="https://packagist.org/packages/ijeffro/laravel-cities" target="_blank"><img src="https://img.shields.io/packagist/dt/ijeffro/laravel-cities?style=flat&logo=packagist&logoColor=white&label=Downloads&color=F28D1A" alt="Downloads on Packagist"></a>&nbsp;
+  <a href="https://github.com/FLAIRUK/laravel-cities/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/github/license/FLAIRUK/laravel-cities?style=flat&label=License&color=3DA639" alt="MIT licence"></a>&nbsp;
+  <a href="https://www.iata.org/en/publications/directories/code-search/" target="_blank"><img src="https://img.shields.io/badge/Data-IATA-0F766E?style=flat" alt="IATA"></a>&nbsp;
+  <br>&nbsp;
+</h2>
 
-More than 9,000 IATA city codes (`LON`, `NYC`, `PAR`, …) for Laravel 12 and 13. A city code groups every airport that serves a city. For example, `LON` covers Heathrow, Gatwick, Stansted and others.
+**Laravel Cities** — More than 9,000 IATA city codes (`LON`, `NYC`, `PAR`, …) for Laravel 12 and 13. A city code groups every airport that serves a city. For example, `LON` covers Heathrow, Gatwick, Stansted and others.
 
 - **No database required.** Look cities up through a facade backed by an in-memory dataset.
 - **Typed results.** Every lookup returns readonly `City` objects in Laravel collections keyed by code.
 - **Validation rule.** `new CityCode` accepts known codes only.
 - **Optional table.** Publish a migration and seed a `cities` table when other tables need to reference cities.
 
-## Installation
+<p align="center">
+  📦&nbsp;<a href="#-installation">Installation</a> ·
+  🚀&nbsp;<a href="#-usage">Usage</a> ·
+  💾&nbsp;<a href="#-database-table-optional">Database table</a> ·
+  🔄&nbsp;<a href="#-upgrading-from-dev-master">Upgrading</a>
+</p>
+
+<br><br>
+
+## 📦 Installation
 
 ```bash
 composer require ijeffro/laravel-cities
@@ -24,7 +39,9 @@ composer require ijeffro/laravel-cities
 
 Laravel discovers the service provider and the `Cities` facade automatically.
 
-## Usage
+<br><br>
+
+## 🚀 Usage
 
 ```php
 use FLAIRUK\Cities\Facades\Cities;
@@ -55,7 +72,9 @@ use FLAIRUK\Cities\Rules\CityCode;
 $request->validate(['city' => ['required', new CityCode]]);
 ```
 
-## Database table (optional)
+<br><br>
+
+## 💾 Database table (optional)
 
 ```bash
 php artisan cities:install         # publish config + migration, then migrate and seed
@@ -80,11 +99,13 @@ City::inCountry('GB')->orderBy('name')->get();
 
 The table name and connection come from `CITIES_TABLE` and `CITIES_DB_CONNECTION`, or from the published config.
 
-## Upgrading from 1.x / dev-master
+<br><br>
+
+## 🔄 Upgrading from dev-master
 
 Version 2 is a rewrite. Breaking changes:
 
-| 1.x | 2.x |
+| dev-master | 1.0 |
 | --- | --- |
 | `ijeffro\Cities\…` namespace | `FLAIRUK\Cities\…` |
 | Facade `ijeffro\Cities\CitiesFacade` | `FLAIRUK\Cities\Facades\Cities` (auto-discovered) |
@@ -101,12 +122,16 @@ Row `id`s are unchanged. If you have an existing table, rename the column before
 Schema::table('cities', fn (Blueprint $table) => $table->renameColumn('iso_3166_3', 'code'));
 ```
 
-## Testing
+<br><br>
+
+## 🧪 Testing
 
 ```bash
 composer test
 ```
 
-## License
+<br><br>
+
+## 📄 License
 
 MIT. See [LICENSE](LICENSE).

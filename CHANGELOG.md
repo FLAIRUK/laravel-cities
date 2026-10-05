@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.0 - Unreleased
+## 1.0.0 - 2026-10-05
 
 Complete rewrite for Laravel 12 and 13 (PHP 8.2+). See the upgrade guide in the README.
 
